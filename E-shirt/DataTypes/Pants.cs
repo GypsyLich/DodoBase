@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace E_shirt.DataTypes
+﻿namespace E_shirt.DataTypes
 {
     class Pants : Clothes
     {
