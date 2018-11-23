@@ -2,6 +2,20 @@
 {
     class AppFuncs
     {
+        public static void ShowDB(ClothesContext db)
+        {
+            switch (1)
+            {
+                default:
+                    break;
+            }
+        }
+
+        public static ClothesContext LoadDB()
+        {
+            return new ClothesContext();
+        }
+
         public static void Listener()
         {
 
@@ -26,7 +40,6 @@
         {
 
         }
-
 
         public static void AddDefault()
         {
