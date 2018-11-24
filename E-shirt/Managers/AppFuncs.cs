@@ -1,22 +1,19 @@
-﻿namespace E_shirt.Managers
+﻿using E_shirt.DataTypes;
+
+namespace E_shirt.Managers
 {
     class AppFuncs
     {
-        public static void ShowDB(ClothesContext db)
+        public static void Listener(ClothesContext db)
         {
-            switch (1)
+            while (true)
             {
-                default:
-                    break;
+                var itemChoise = Misc.ItemChoise();
+                var actionChoice = Misc.ActionChoice(itemChoise);
             }
         }
 
-        public static ClothesContext LoadDB()
-        {
-            return new ClothesContext();
-        }
-
-        public static void Listener()
+        public static void AddDefault()
         {
 
         }
@@ -26,14 +23,26 @@
 
         }
 
-        public static void DeleteItemById()
+        public static void ShowItemById()
         {
 
         }
 
-        public static void ShowItemById()
+        public static void ShowDB(ClothesContext db, ClothesTypes itemChoise)
         {
-
+            switch (itemChoise)
+            {
+                case  :
+                    break;
+                case 2:
+                    break;
+                case 3:
+                    break;
+                case 4:
+                    break;
+                default:
+                    break;
+            }
         }
 
         public static void UpdateItemById()
@@ -41,9 +50,5 @@
 
         }
 
-        public static void AddDefault()
-        {
-
-        }
     }
 }

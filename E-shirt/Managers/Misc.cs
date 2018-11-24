@@ -12,6 +12,7 @@ namespace E_shirt.Managers
             Console.WriteLine($"{message} \n");
             Console.ResetColor();
         }
+
         public static void WriteDataToFile(string filepath, string message)
         {
             File.AppendAllText(filepath, message);
@@ -42,16 +43,32 @@ namespace E_shirt.Managers
             }
         }
 
-        public static ClothesContext Choise()
+        public static ClothesTypes ItemChoise()
         {
             while (true)
             {
                 var itemInput = Console.ReadLine();
                 if (itemInput == "1" || itemInput == "2" || itemInput == "3")
                 {
-                    return (ClothesContext)Enum.Parse(typeof(ClothesContext), itemInput);
+                    return (ClothesTypes)Enum.Parse(typeof(ClothesTypes), itemInput);
                 }
                 Misc.ConsoleLog(ConsoleColor.Yellow, "Please, choose \"Tops\", \"Pants\" or \"Shoes\"");
+            }
+        }
+
+        public static int ActionChoice(ClothesTypes ClothesType)
+        {
+            Misc.ConsoleLog(ConsoleColor.Yellow, $"1-remove {ClothesType} (by ID)\n2-add default {ClothesType}" +
+            $" \n3-add {ClothesType} with parameters \n4-search info about the {ClothesType} in DataBase" +
+            $"\n5-show all {ClothesType} DataBase \n6-update {ClothesType} by ID");
+            while (true)
+            {
+                var result = Int32.TryParse(Console.ReadLine(), out int choice);
+                if (result && choice == 1 || choice == 2 || choice == 3 || choice == 4)
+                {
+                    return choice;
+                }
+                Misc.ConsoleLog(ConsoleColor.Yellow, "Choose 1, 2, 3 or 4");
             }
         }
     }
