@@ -6,13 +6,12 @@
         public int Price { get; set; }
         public int Color { get; set; }
         public int Id { get; set; }
-        public Clothes(int size, int price, int color, int id)
+        public Clothes(int size, int price, int color)
         {
             Size = size;
             Price = price;
             Color = color;
-            Id = id;
         }
-        public Clothes() : this(0, 0, 0, 0) { }
+        public Clothes() : this(0, 0, 0) { }
     }
 }

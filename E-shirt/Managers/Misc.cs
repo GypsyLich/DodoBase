@@ -74,5 +74,11 @@ namespace E_shirt.Managers
                 Misc.ConsoleLog(ConsoleColor.Yellow, "Choose 1, 2, 3 or 4");
             }
         }
+
+        public static string GetParameter(string str)
+        {
+            Console.Write(str + ": ");
+            return Console.ReadLine(); ;
+        }
     }
 }

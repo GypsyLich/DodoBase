@@ -88,15 +88,29 @@ namespace E_shirt.Managers
         {
             while (true)
             {
-                switch (itemChoise)
+                try
                 {
-                    case ClothesTypes.Tops:
+                    switch (itemChoise)
+                    {
+                        case ClothesTypes.Tops:
+                            db.Tops.Add(new Tops(Convert.ToInt32(Misc.GetParameter("Size")), Convert.ToInt32(Misc.GetParameter("Price")),
+                               Convert.ToInt32(Misc.GetParameter("Color")), Misc.GetParameter("Heels"), Misc.GetParameter("Season")));
+                            break;
+                        case ClothesTypes.Pants:
+                            db.Pants.Add(new Pants(Convert.ToInt32(Misc.GetParameter("Size")), Convert.ToInt32(Misc.GetParameter("Price")),
+                               Convert.ToInt32(Misc.GetParameter("Color")), Misc.GetParameter("Model"), Misc.GetParameter("Type")));
+                            break;
+                        case ClothesTypes.Shoes:
+                            db.Shoes.Add(new Shoes(Convert.ToInt32(Misc.GetParameter("Size")), Convert.ToInt32(Misc.GetParameter("Price")),
+                               Convert.ToInt32(Misc.GetParameter("Color")), Misc.GetParameter("Brand"),
+                               Convert.ToBoolean(Misc.GetParameter("WaterProof"))));
+                            break;
+                    }
+                }
+                catch (Exception)
+                {
 
-                        break;
-                    case ClothesTypes.Pants:
-                        break;
-                    case ClothesTypes.Shoes:
-                        break;
+                    throw;
                 }
             }
         }

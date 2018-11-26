@@ -5,9 +5,9 @@
         public string Brand { get; set; }
         public bool WaterProof { get; set; }
 
-        public Shoes() : this("def. brand", false, 0, 0, 0, 0) { }
-        public Shoes(string brand, bool waterProof, int size, int price, int color, int id)
-            : base(size, price, color, id)
+        public Shoes() : this("def. brand", false, 0, 0, 0) { }
+        public Shoes(string brand, bool waterProof, int size, int price, int color)
+            : base(size, price, color)
         {
             Brand = brand;
             WaterProof = waterProof;
