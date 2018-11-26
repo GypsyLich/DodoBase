@@ -64,7 +64,7 @@ namespace E_shirt.Managers
             while (true)
             {
                 var result = Int32.TryParse(Console.ReadLine(), out int choice);
-                if (result && choice == 1 || choice == 2 || choice == 3 || choice == 4)
+                if (result && choice == 1 || choice == 2 || choice == 3 || choice == 4 || choice == 5 || choice == 6)
                 {
                     return choice;
                 }

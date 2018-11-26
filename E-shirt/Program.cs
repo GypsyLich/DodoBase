@@ -7,10 +7,9 @@ namespace E_shirt
     {
         static void Main(string[] args)
         {
-            ClothesContext db = new ClothesContext();
             try
             {
-                AppFuncs.Listener(db);
+                AppFuncs.Listener();
             }
             catch (Exception exception)
             {
