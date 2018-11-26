@@ -18,7 +18,7 @@ namespace E_shirt.Managers
             File.AppendAllText(filepath, message);
         }
 
-        public static int GetId(ClothesTypes transportType, ClothesContext db)
+        public static int GetId(ClothesTypes itemChoise, ClothesContext db)
         {
             while (true)
             {
@@ -26,10 +26,13 @@ namespace E_shirt.Managers
                 {
                     Console.Write("Enter item's Id: ");
                     var id = Convert.ToInt32(Console.ReadLine());
-                    if ((db.Tops.Find(id) == null && transportType == ClothesTypes.Tops) || (db.Pants.Find(id) == null && transportType == ClothesTypes.Pants) || (db.Shoes.Find(id) == null && transportType == ClothesTypes.Shoes))
+                    if ((db.Tops.Find(id) == null && itemChoise == ClothesTypes.Tops) || (db.Pants.Find(id) == null && itemChoise == ClothesTypes.Pants) || (db.Shoes.Find(id) == null && itemChoise == ClothesTypes.Shoes))
                     {
-                        Misc.ConsoleLog(ConsoleColor.Yellow, $"Sorry, there is no {transportType} in DataBase.");
-
+                        Misc.ConsoleLog(ConsoleColor.Yellow, $"Sorry, there is no {itemChoise} in DataBase with such ID, exit (Y/N)?");
+                        if (Console.ReadLine() == "Y")
+                        {
+                            return -1;
+                        }
                     }
                     else
                     {

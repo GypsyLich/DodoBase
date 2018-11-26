@@ -1,4 +1,5 @@
 ﻿using E_shirt.DataTypes;
+using System;
 
 namespace E_shirt.Managers
 {
@@ -12,11 +13,11 @@ namespace E_shirt.Managers
             {
                 var itemChoise = Misc.ItemChoise();
                 var actionChoice = Misc.ActionChoice(itemChoise);
-                var id = actionChoice == 1 || actionChoice == 4 || actionChoice == 6 ? Misc.GetId(itemChoise , db) : -1;
+
                 switch (actionChoice)
                 {
                     case 1:
-                        RemoveItembyId(itemChoise, id);
+                        RemoveItembyId(itemChoise);
                         break;
                     case 2:
                         AddDefault(itemChoise);
@@ -25,53 +26,100 @@ namespace E_shirt.Managers
                         AddItem(itemChoise);
                         break;
                     case 4:
-                        ShowItemById(itemChoise, id);
+                        ShowItemById(itemChoise);
                         break;
                     case 5:
                         ShowDB(itemChoise);
                         break;
                     case 6:
-                        UpdateItemById(itemChoise, id);
+                        UpdateItemById(itemChoise);
                         break;
                 }
                 db.SaveChanges();
             }
         }
 
-        public static void RemoveItembyId(ClothesTypes itemChoise, int id)
+        public static void RemoveItembyId(ClothesTypes itemChoise)
         {
-
+            while (true)
+            {
+                try
+                {
+                    switch (itemChoise)
+                    {
+                        case ClothesTypes.Tops:
+                            var topsForDeletion = db.Tops.Find(Misc.GetId(itemChoise, db));
+                            db.Tops.Remove(topsForDeletion);
+                            break;
+                        case ClothesTypes.Pants:
+                            var pantsForDeletion = db.Pants.Find(Misc.GetId(itemChoise, db));
+                            db.Pants.Remove(pantsForDeletion);
+                            break;
+                        case ClothesTypes.Shoes:
+                            var shoesForDeletion = db.Shoes.Find(Misc.GetId(itemChoise, db));
+                            db.Shoes.Remove(shoesForDeletion);
+                            break;
+                    }
+                }
+                catch (Exception)
+                {
+                        break;
+                }
+            }
         }
 
         public static void AddDefault(ClothesTypes itemChoise)
         {
-
+            switch (itemChoise)
+            {
+                case ClothesTypes.Tops:
+                    db.Tops.Add(new Tops());
+                    break;
+                case ClothesTypes.Pants:
+                    db.Pants.Add(new Pants());
+                    break;
+                case ClothesTypes.Shoes:
+                    db.Shoes.Add(new Shoes());
+                    break;
+            }
         }
 
         public static void AddItem(ClothesTypes itemChoise)
         {
+            while (true)
+            {
+                switch (itemChoise)
+                {
+                    case ClothesTypes.Tops:
 
+                        break;
+                    case ClothesTypes.Pants:
+                        break;
+                    case ClothesTypes.Shoes:
+                        break;
+                }
+            }
         }
 
-        public static void ShowItemById(ClothesTypes itemChoise, int id)
+        public static void ShowItemById(ClothesTypes itemChoise)
         {
 
         }
 
         public static void ShowDB(ClothesTypes itemChoise)
         {
-            switch (itemChoise.ToString())
+            switch (itemChoise)
             {
-                case "Tops":
+                case ClothesTypes.Tops:
                     break;
-                case "Pants":
+                case ClothesTypes.Pants:
                     break;
-                case "Shoes":
+                case ClothesTypes.Shoes:
                     break;
             }
         }
 
-        public static void UpdateItemById(ClothesTypes itemChoise, int id)
+        public static void UpdateItemById(ClothesTypes itemChoise)
         {
 
         }
