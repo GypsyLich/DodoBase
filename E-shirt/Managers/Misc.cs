@@ -50,8 +50,9 @@ namespace E_shirt.Managers
         {
             while (true)
             {
+                Misc.ConsoleLog(ConsoleColor.Yellow, "Choose \"Tops\", \"Pants\" or \"Shoes\"");
                 var itemInput = Console.ReadLine();
-                if (itemInput == "1" || itemInput == "2" || itemInput == "3")
+                if (itemInput == "Tops" || itemInput == "Pants" || itemInput == "Shoes")
                 {
                     return (ClothesTypes)Enum.Parse(typeof(ClothesTypes), itemInput);
                 }

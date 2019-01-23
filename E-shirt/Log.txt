@@ -1,0 +1,7 @@
+System.FormatException: Входная строка имела неверный формат.
+   в System.Number.StringToNumber(String str, NumberStyles options, NumberBuffer& number, NumberFormatInfo info, Boolean parseDecimal)
+   в System.Number.ParseInt32(String s, NumberStyles style, NumberFormatInfo info)
+   в System.Convert.ToInt32(String value)
+   в E_shirt.Managers.AppFuncs.AddItem(ClothesTypes itemChoise) в C:\Users\Миша\Desktop\DodoBase\E-shirt\Managers\AppFuncs.cs:строка 113
+   в E_shirt.Managers.AppFuncs.Listener() в C:\Users\Миша\Desktop\DodoBase\E-shirt\Managers\AppFuncs.cs:строка 26
+   в E_shirt.Program.Main(String[] args) в C:\Users\Миша\Desktop\DodoBase\E-shirt\Program.cs:строка 12

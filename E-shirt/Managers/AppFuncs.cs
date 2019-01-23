@@ -93,17 +93,17 @@ namespace E_shirt.Managers
                     switch (itemChoise)
                     {
                         case ClothesTypes.Tops:
-                            db.Tops.Add(new Tops(Convert.ToInt32(Misc.GetParameter("Size")), Convert.ToInt32(Misc.GetParameter("Price")),
-                               Convert.ToInt32(Misc.GetParameter("Color")), Misc.GetParameter("Heels"), Misc.GetParameter("Season")));
+                            db.Tops.Add(new Tops((Misc.GetParameter("Size")), Misc.GetParameter("Price"),
+                               Convert.ToInt32(Misc.GetParameter("Color")), Int32.Parse(Misc.GetParameter("Heels")), Int32.Parse(Misc.GetParameter("Season"))));
                             break;
                         case ClothesTypes.Pants:
-                            db.Pants.Add(new Pants(Convert.ToInt32(Misc.GetParameter("Size")), Convert.ToInt32(Misc.GetParameter("Price")),
-                               Convert.ToInt32(Misc.GetParameter("Color")), Misc.GetParameter("Model"), Misc.GetParameter("Type")));
+                            db.Pants.Add(new Pants(Misc.GetParameter("Size"), Misc.GetParameter("Price"),
+                               Convert.ToInt32(Misc.GetParameter("Color")), Int32.Parse(Misc.GetParameter("Model")), Int32.Parse(Misc.GetParameter("Type"))));
                             break;
                         case ClothesTypes.Shoes:
-                            db.Shoes.Add(new Shoes(Convert.ToInt32(Misc.GetParameter("Size")), Convert.ToInt32(Misc.GetParameter("Price")),
-                               Convert.ToInt32(Misc.GetParameter("Color")), Misc.GetParameter("Brand"),
-                               Convert.ToBoolean(Misc.GetParameter("WaterProof"))));
+                            db.Shoes.Add(new Shoes(Misc.GetParameter("Size"), Boolean.Parse(Misc.GetParameter("Price")),
+                               Convert.ToInt32(Misc.GetParameter("Color")), Int32.Parse(Misc.GetParameter("Brand")),
+                               Int32.Parse(Misc.GetParameter("WaterProof"))));
                             break;
                     }
                 }
