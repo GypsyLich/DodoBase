@@ -93,17 +93,17 @@ namespace E_shirt.Managers
                     switch (itemChoise)
                     {
                         case ClothesTypes.Tops:
-                            db.Tops.Add(new Tops((Misc.GetParameter("Size")), Misc.GetParameter("Price"),
-                               Convert.ToInt32(Misc.GetParameter("Color")), Int32.Parse(Misc.GetParameter("Heels")), Int32.Parse(Misc.GetParameter("Season"))));
+                            db.Tops.Add(new Tops(Misc.GetParameter("Brand"),
+                               Boolean.Parse(Misc.GetParameter("WaterProof")), Int32.Parse(Misc.GetParameter("Size")), Int32.Parse(Misc.GetParameter("Price")),
+                               Int32.Parse(Misc.GetParameter("Color"))));
                             break;
                         case ClothesTypes.Pants:
-                            db.Pants.Add(new Pants(Misc.GetParameter("Size"), Misc.GetParameter("Price"),
-                               Convert.ToInt32(Misc.GetParameter("Color")), Int32.Parse(Misc.GetParameter("Model")), Int32.Parse(Misc.GetParameter("Type"))));
+                            db.Pants.Add(new Pants(Misc.GetParameter("Model"), Misc.GetParameter("Type"), Int32.Parse(Misc.GetParameter("Size")), Int32.Parse(Misc.GetParameter("Price")),
+                              Int32.Parse(Misc.GetParameter("Color"))));
                             break;
                         case ClothesTypes.Shoes:
-                            db.Shoes.Add(new Shoes(Misc.GetParameter("Size"), Boolean.Parse(Misc.GetParameter("Price")),
-                               Convert.ToInt32(Misc.GetParameter("Color")), Int32.Parse(Misc.GetParameter("Brand")),
-                               Int32.Parse(Misc.GetParameter("WaterProof"))));
+                            db.Shoes.Add(new Shoes(Misc.GetParameter("Heels"), Misc.GetParameter("Season"), Int32.Parse(Misc.GetParameter("Size")), Int32.Parse(Misc.GetParameter("Price")),
+                                Int32.Parse(Misc.GetParameter("Color"))));
                             break;
                     }
                 }

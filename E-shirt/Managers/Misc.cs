@@ -79,7 +79,7 @@ namespace E_shirt.Managers
         public static string GetParameter(string str)
         {
             Console.Write(str + ": ");
-            return Console.ReadLine(); ;
+            return Console.ReadLine();
         }
     }
 }

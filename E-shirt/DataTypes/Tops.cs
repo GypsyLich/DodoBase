@@ -2,15 +2,15 @@
 {
     class Tops : Clothes
     {
-        public string Heels { get; set; }
-        public string Season { get; set; }
+        public string Brand { get; set; }
+        public bool WaterProof { get; set; }
 
-        public Tops() : this("def. heels", "def. season", 0, 0, 0) { }
-        public Tops(string heels, string season, int size, int price, int color)
+        public Tops() : this("def. brand", false, 0, 0, 0) { }
+        public Tops(string brand, bool waterProof, int size, int price, int color)
             : base(size, price, color)
         {
-            Heels = heels;
-            Season = season;
+            Brand = brand;
+            WaterProof = waterProof;
         }
     }
 }

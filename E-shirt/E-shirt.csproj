@@ -56,8 +56,8 @@
     <Compile Include="ClothesContext.cs" />
     <Compile Include="DataTypes\ClothesTypes.cs" />
     <Compile Include="DataTypes\Pants.cs" />
-    <Compile Include="DataTypes\Shoes.cs" />
     <Compile Include="DataTypes\Tops.cs" />
+    <Compile Include="DataTypes\Shoes.cs" />
     <Compile Include="DataTypes\Clothes.cs" />
     <Compile Include="Managers\AppFuncs.cs" />
     <Compile Include="Managers\Misc.cs" />
