@@ -117,7 +117,31 @@ namespace E_shirt.Managers
 
         public static void ShowItemById(ClothesTypes itemChoise)
         {
-
+            while (true)
+            {
+                try
+                {
+                    switch (itemChoise)
+                    {
+                        case ClothesTypes.Tops:
+                            var topsItem = db.Tops.Find(Misc.GetId(itemChoise, db));
+                            Misc.ShowTops(topsItem);
+                            break;
+                        case ClothesTypes.Pants:
+                            var pantsItem = db.Pants.Find(Misc.GetId(itemChoise, db));
+                            Misc.ShowPants(pantsItem);
+                            break;
+                        case ClothesTypes.Shoes:
+                            var shoesItem = db.Shoes.Find(Misc.GetId(itemChoise, db));
+                            Misc.ShowShoes(shoesItem);
+                            break;
+                    }
+                }
+                catch (Exception)
+                {
+                    break;
+                }
+            }
         }
 
         public static void ShowDB(ClothesTypes itemChoise)
@@ -125,17 +149,53 @@ namespace E_shirt.Managers
             switch (itemChoise)
             {
                 case ClothesTypes.Tops:
+                    foreach (var item in db.Tops)
+                    {
+                        Misc.ShowTops(item);
+                    }
                     break;
                 case ClothesTypes.Pants:
+                    foreach (var item in db.Pants)
+                    {
+                        Misc.ShowPants(item);
+                    }
                     break;
                 case ClothesTypes.Shoes:
+                    foreach (var item in db.Shoes)
+                    {
+                        Misc.ShowShoes(item);
+                    }
                     break;
             }
         }
 
         public static void UpdateItemById(ClothesTypes itemChoise)
         {
-
+            while (true)
+            {
+                try
+                {
+                    switch (itemChoise)
+                    {
+                        case ClothesTypes.Tops:
+                            var topsItem = db.Tops.Find(Misc.GetId(itemChoise, db));
+                            Misc.ShowTops(topsItem);
+                            break;
+                        case ClothesTypes.Pants:
+                            var pantsItem = db.Pants.Find(Misc.GetId(itemChoise, db));
+                            Misc.ShowPants(pantsItem);
+                            break;
+                        case ClothesTypes.Shoes:
+                            var shoesItem = db.Shoes.Find(Misc.GetId(itemChoise, db));
+                            Misc.ShowShoes(shoesItem);
+                            break;
+                    }
+                }
+                catch (Exception)
+                {
+                    break;
+                }
+            }
         }
 
     }

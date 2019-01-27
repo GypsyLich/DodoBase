@@ -81,5 +81,22 @@ namespace E_shirt.Managers
             Console.Write(str + ": ");
             return Console.ReadLine();
         }
+
+        public static void ShowTops(Tops topsItem)
+        {
+            Misc.ConsoleLog(ConsoleColor.Cyan, $"Brand: {topsItem.Brand}\nWaterProof: {topsItem.WaterProof}\nSize: {topsItem.Size}\nPrice: {topsItem.Price}\nColor: {topsItem.Color}\n");
+        }
+
+        public static void ShowPants(Pants pantsItem)
+        {
+            Misc.ConsoleLog(ConsoleColor.Red, $"Model: {pantsItem.Model}\nType: {pantsItem.Type}\nSize: {pantsItem.Size}\nPrice: {pantsItem.Price}\nColor: {pantsItem.Color}\n");
+        }
+
+        public static void ShowShoes(Shoes shoesItem)
+        {
+            Misc.ConsoleLog(ConsoleColor.Magenta, $"Heels: {shoesItem.Heels}\nSeason: {shoesItem.Season}\nSize: {shoesItem.Size}\nPrice: {shoesItem.Price}\nColor: {shoesItem.Color}\n");
+        }
+
+
     }
 }
