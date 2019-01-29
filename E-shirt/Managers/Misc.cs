@@ -29,7 +29,8 @@ namespace E_shirt.Managers
                     if ((db.Tops.Find(id) == null && itemChoise == ClothesTypes.Tops) || (db.Pants.Find(id) == null && itemChoise == ClothesTypes.Pants) || (db.Shoes.Find(id) == null && itemChoise == ClothesTypes.Shoes))
                     {
                         Misc.ConsoleLog(ConsoleColor.Yellow, $"Sorry, there is no {itemChoise} in DataBase with such ID, exit (Y/N)?");
-                        if (Console.ReadLine() == "Y")
+                        string temp = Console.ReadLine();
+                        if ( temp == "Y" || temp == "y")
                         {
                             return -1;
                         }
