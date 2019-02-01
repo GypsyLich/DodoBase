@@ -33,6 +33,12 @@ namespace E_shirt.Managers
                         break;
                 }
                 db.SaveChanges();
+                Misc.ConsoleLog(ConsoleColor.Yellow, "Changes have been saved, exit (Y/N)?");
+                string temp = Console.ReadLine();
+                if (temp == "Y" || temp == "y")
+                {
+                    break;
+                }
             }
         }
 
