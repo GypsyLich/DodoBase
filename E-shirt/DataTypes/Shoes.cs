@@ -1,6 +1,6 @@
 ﻿namespace E_shirt.DataTypes
 {
-    class Shoes : Clothes
+    public class Shoes : Clothes
     {
         public string Heels { get; set; }
         public string Season { get; set; }

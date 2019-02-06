@@ -1,6 +1,6 @@
 ﻿namespace E_shirt.DataTypes
 {
-    class Tops : Clothes
+    public class Tops : Clothes
     {
         public string Brand { get; set; }
         public bool WaterProof { get; set; }

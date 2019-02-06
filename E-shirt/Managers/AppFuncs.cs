@@ -3,7 +3,7 @@ using System;
 
 namespace E_shirt.Managers
 {
-    class AppFuncs
+    public class AppFuncs
     {
         public static ClothesContext db = new ClothesContext();
 
@@ -14,10 +14,12 @@ namespace E_shirt.Managers
                 var itemChoise = Misc.ItemChoise();
                 ShowDB(itemChoise);
                 var actionChoice = Misc.ActionChoice(itemChoise);
+                int id;
                 switch (actionChoice)
                 {
                     case 1:
-                        RemoveItembyId(itemChoise);
+                        id = Misc.GetId(itemChoise, db);
+                        RemoveItembyId(itemChoise, id);
                         break;
                     case 2:
                         AddDefault(itemChoise);
@@ -26,10 +28,12 @@ namespace E_shirt.Managers
                         AddItem(itemChoise);
                         break;
                     case 4:
-                        ShowItemById(itemChoise);
+                        id = Misc.GetId(itemChoise, db);
+                        ShowItemById(itemChoise, id);
                         break;
                     case 5:
-                        UpdateItemById(itemChoise);
+                        id = Misc.GetId(itemChoise, db);
+                        UpdateItemById(itemChoise, id);
                         break;
                 }
                 db.SaveChanges();
@@ -42,7 +46,7 @@ namespace E_shirt.Managers
             }
         }
 
-        public static void RemoveItembyId(ClothesTypes itemChoise)
+        public static void RemoveItembyId(ClothesTypes itemChoise, int id)
         {
             while (true)
             {
@@ -51,23 +55,23 @@ namespace E_shirt.Managers
                     switch (itemChoise)
                     {
                         case ClothesTypes.Tops:
-                            var topsForDeletion = db.Tops.Find(Misc.GetId(itemChoise, db));
-                            db.Tops.Remove(topsForDeletion);
+                            var topsItem = Misc.SelectTopsById(itemChoise, id);
+                            db.Tops.Remove(topsItem);
                             break;
                         case ClothesTypes.Pants:
-                            var pantsForDeletion = db.Pants.Find(Misc.GetId(itemChoise, db));
-                            db.Pants.Remove(pantsForDeletion);
+                            var pantsItem = Misc.SelectPantsById(itemChoise, id);
+                            db.Pants.Remove(pantsItem);
                             break;
                         case ClothesTypes.Shoes:
-                            var shoesForDeletion = db.Shoes.Find(Misc.GetId(itemChoise, db));
-                            db.Shoes.Remove(shoesForDeletion);
+                            var shoesItem = Misc.SelectShoesById(itemChoise, id);
+                            db.Shoes.Remove(shoesItem);
                             break;
                     }
                     break;
                 }
                 catch (Exception)
                 {
-                        break;
+                    break;
                 }
             }
         }
@@ -119,7 +123,7 @@ namespace E_shirt.Managers
             }
         }
 
-        public static void ShowItemById(ClothesTypes itemChoise)
+        public static void ShowItemById(ClothesTypes itemChoise, int id)
         {
             while (true)
             {
@@ -128,15 +132,15 @@ namespace E_shirt.Managers
                     switch (itemChoise)
                     {
                         case ClothesTypes.Tops:
-                            var topsItem = db.Tops.Find(Misc.GetId(itemChoise, db));
+                            var topsItem = Misc.SelectTopsById(itemChoise, id);
                             Misc.ShowItem(topsItem);
                             break;
                         case ClothesTypes.Pants:
-                            var pantsItem = db.Pants.Find(Misc.GetId(itemChoise, db));
+                            var pantsItem = Misc.SelectPantsById(itemChoise, id);
                             Misc.ShowItem(pantsItem);
                             break;
                         case ClothesTypes.Shoes:
-                            var shoesItem = db.Shoes.Find(Misc.GetId(itemChoise, db));
+                            var shoesItem = Misc.SelectShoesById(itemChoise, id);
                             Misc.ShowItem(shoesItem);
                             break;
                     }
@@ -174,7 +178,7 @@ namespace E_shirt.Managers
             }
         }
 
-        public static void UpdateItemById(ClothesTypes itemChoise)
+        public static void UpdateItemById(ClothesTypes itemChoise, int id)
         {
             while (true)
             {
@@ -183,17 +187,17 @@ namespace E_shirt.Managers
                     switch (itemChoise)
                     {
                         case ClothesTypes.Tops:
-                            var topsItem = db.Tops.Find(Misc.GetId(itemChoise, db));
+                            var topsItem = Misc.SelectTopsById(itemChoise, id);
                             Misc.ShowItem(topsItem);
                             Misc.ChangeProperty(topsItem);
                             break;
                         case ClothesTypes.Pants:
-                            var pantsItem = db.Pants.Find(Misc.GetId(itemChoise, db));
+                            var pantsItem = Misc.SelectPantsById(itemChoise, id);
                             Misc.ShowItem(pantsItem);
                             Misc.ChangeProperty(pantsItem);
                             break;
                         case ClothesTypes.Shoes:
-                            var shoesItem = db.Shoes.Find(Misc.GetId(itemChoise, db));
+                            var shoesItem = Misc.SelectShoesById(itemChoise, id);
                             Misc.ShowItem(shoesItem);
                             Misc.ChangeProperty(shoesItem);
                             break;

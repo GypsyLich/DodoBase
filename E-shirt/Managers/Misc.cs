@@ -4,7 +4,7 @@ using System.IO;
 
 namespace E_shirt.Managers
 {
-    class Misc
+    public class Misc
     {
         public static void ConsoleLog(ConsoleColor clr, string message)
         {
@@ -154,6 +154,24 @@ namespace E_shirt.Managers
                     Misc.ConsoleLog(ConsoleColor.Yellow, "Incorrect input, try again");
                 }
             }
+        }
+
+        public static Tops SelectTopsById(ClothesTypes itemChoise, int id)
+        {
+            var topsItem = AppFuncs.db.Tops.Find(id);
+            return topsItem;
+        }
+
+        public static Pants SelectPantsById(ClothesTypes itemChoise, int id)
+        {
+            var pantsItem = AppFuncs.db.Pants.Find(id);
+            return pantsItem;
+        }
+
+        public static Shoes SelectShoesById(ClothesTypes itemChoise, int id)
+        {
+            var shoesItem = AppFuncs.db.Shoes.Find(id);
+            return shoesItem;
         }
     }
 }

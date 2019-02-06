@@ -3,7 +3,7 @@ using System.Data.Entity;
 
 namespace E_shirt
 {
-    class ClothesContext : DbContext
+    public class ClothesContext : DbContext
     {
         public ClothesContext()
     : base("DbConnection")
